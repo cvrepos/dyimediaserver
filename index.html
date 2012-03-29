@@ -1,0 +1,44 @@
+<html>
+<head>
+<script type='text/javascript' src='jquery.min.js'></script>
+<script type="text/javascript" src="swfobject.js"></script>    
+<script type='text/javascript' src='playlist.js'></script>
+<script type='text/javascript'>
+var player;
+function onYouTubePlayerReady(playerId) {
+    console.log("invoked onplayer ready");
+    player = document.getElementById("myytplayer");
+    player.loadPlaylist(playlist);
+}
+$(function(){
+    var params = { allowScriptAccess: "always" };
+    var atts = { id: "myytplayer" };
+    //swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&version=3",
+    //                               "ytapiplayer", "425", "356", "8", null, null, params, atts);
+    swfobject.embedSWF("http://www.youtube.com/v/JzGAmLNwLjw?enablejsapi=1&version=3&playerapiid=ytplayer",
+                                   "ytapiplayer", "425", "356", "8", null, null, params, atts);
+    $("#prev_button").click(function() {
+        if(player) {
+          player.previousVideo();
+        }
+     });
+    $("#next_button").click(function() {
+        if(player) {
+          player.nextVideo();
+        }
+     });
+}); 
+</script>
+</head>
+<body>
+   <div id="ytapiplayer">
+     You need Flash player 8+ and JavaScript enabled to view this video.
+   </div>
+   <div id='controls'>
+      <input type='button' id='prev_button' value='prev'/>
+      <input type='button' id='next_button' value='next'/>
+   </div>
+
+</body>
+
+</html>
