@@ -1,14 +1,13 @@
 {
-    "name": "Youtube video scrapper",
-        "description": "Scraps videos out of http://www.youtube.com/embed/[video_id]",
+    "name": "Video parser",
+        "description": "Parses videos out of http://www.youtube.com/embed/[video_id]",
         "version": "0.1",
         "permissions": ["contextMenus"],
-        "background_page": "background.html",
         "content_security_policy": "default-src 'self'",
         "content_scripts": [
             {
                 "matches": ["*://*/*"],
-                "js": ["jquery.min.js","addbutton.js"]
+                "js": ["jquery.min.js","parser.js"]
             }
         ]
 
